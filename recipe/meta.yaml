@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 
 requirements:
@@ -28,11 +28,11 @@ requirements:
   host:
     - xorg-libxfixes
     - libxkbcommon
-    - qt
+    - qt-main
     - extra-cmake-modules
   run:
     - libxkbcommon
-    - qt
+    - qt-main
 
 test:
   commands:
