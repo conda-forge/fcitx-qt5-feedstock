@@ -25,6 +25,7 @@ requirements:
     - {{ cdt('libxext') }}
     - {{ compiler("cxx") }}
     - cmake
+    - ninja
   host:
     - xorg-libxfixes
     - libxkbcommon
