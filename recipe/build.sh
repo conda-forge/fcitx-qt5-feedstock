@@ -8,4 +8,4 @@ cmake -G "Ninja" \
       -D CMAKE_PREFIX_PATH:FILEPATH=$PREFIX \
       ..
 
-make install
+ninja install
