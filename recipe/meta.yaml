@@ -24,8 +24,11 @@ requirements:
     - {{ cdt('libxxf86vm') }}
     - {{ cdt('libxext') }}
     - {{ compiler("cxx") }}
+    - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
     - cmake
     - ninja
+    - qt-main   # [build_platform != target_platform]
   host:
     - xorg-libxfixes
     - libxkbcommon
@@ -33,7 +36,6 @@ requirements:
     - extra-cmake-modules
   run:
     - libxkbcommon
-    - qt-main
 
 test:
   commands:
