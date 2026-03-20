@@ -9,17 +9,11 @@ source:
   sha256: 4c1c5e4f9c9067f7274a23411599f8510f52d4fa892c87af63466ec806667823
 
 build:
-  number: 2
+  number: 3
   skip: true  # [not linux]
 
 requirements:
   build:
-    - {{ cdt('mesa-libgl-devel') }}
-    - {{ cdt('mesa-dri-drivers') }}
-    - {{ cdt('libselinux') }}
-    - {{ cdt('libxdamage') }}
-    - {{ cdt('libxxf86vm') }}
-    - {{ cdt('libxext') }}
     - {{ compiler("cxx") }}
     - {{ compiler("cxx") }}
     - {{ stdlib("c") }}
@@ -31,6 +25,7 @@ requirements:
     - libxkbcommon
     - qt-main
     - extra-cmake-modules
+    - libgl-devel
   run:
     - libxkbcommon
 
