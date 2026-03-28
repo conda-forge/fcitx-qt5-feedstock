@@ -1,0 +1,52 @@
+schema_version: 1
+
+context:
+  version: "1.2.7"
+
+package:
+  name: fcitx-qt5
+  version: ${{ version }}
+
+source:
+  url: https://github.com/fcitx/fcitx-qt5/archive/${{ version }}.tar.gz
+  sha256: 4c1c5e4f9c9067f7274a23411599f8510f52d4fa892c87af63466ec806667823
+
+build:
+  number: 3
+  skip: win
+
+requirements:
+  build:
+    - ${{ compiler("cxx") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - ninja
+    - if: build_platform != target_platform
+      then: qt6-main
+  host:
+    - qt6-main
+    - if: linux
+      then:
+        - extra-cmake-modules
+        - libgl-devel
+        - xorg-libxfixes
+        - libxkbcommon
+
+tests:
+  - script:
+      - test -f ${PREFIX}/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin${SHLIB_EXT}
+
+about:
+  license: GPL-2.0-or-later
+  license_file: COPYING
+  summary: Fcitx [ˈfaɪtɪks] is an input method framework with extension support.
+  description: |
+    Fcitx [ˈfaɪtɪks] is an input method framework with extension support.
+  homepage: https://fcitx-im.org/wiki/Fcitx
+  repository: https://github.com/fcitx/fcitx-qt5
+  documentation: https://fcitx-im.org/wiki/Fcitx
+
+extra:
+  recipe-maintainers:
+    - looooo
