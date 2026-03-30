@@ -21,6 +21,7 @@ requirements:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
     - cmake
+    - extra-cmake-modules
     - ninja
     - if: build_platform != target_platform
       then: qt6-main
@@ -28,7 +29,6 @@ requirements:
     - qt6-main
     - if: linux
       then:
-        - extra-cmake-modules
         - libgl-devel
         - xorg-libxfixes
         - libxkbcommon
