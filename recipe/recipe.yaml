@@ -26,12 +26,12 @@ requirements:
       then: qt6-main
   host:
     - extra-cmake-modules
-    - xorg-libxfixes
+    - libxkbcommon
     - qt6-main
     - if: linux
       then:
         - libgl-devel
-        - libxkbcommon
+        - xorg-libxfixes
 
 tests:
   - script:
