@@ -21,16 +21,16 @@ requirements:
     - ${{ compiler("cxx") }}
     - ${{ stdlib("c") }}
     - cmake
-    - extra-cmake-modules
     - ninja
     - if: build_platform != target_platform
       then: qt6-main
   host:
+    - extra-cmake-modules
+    - xorg-libxfixes
     - qt6-main
     - if: linux
       then:
         - libgl-devel
-        - xorg-libxfixes
         - libxkbcommon
 
 tests:
