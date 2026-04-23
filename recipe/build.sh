@@ -1,12 +1,12 @@
-set -ex
-mkdir -p build
-cd build
+#!/usr/bin/env bash
 
-cmake ${CMAKE_ARGS} \
+set -o xtrace -o nounset -o pipefail -o errexit
+
+cmake -B build -S ${SRC_DIR} \
     -G "Ninja" \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -D ENABLE_LIBRARY:BOOL=OFF \
-    -D CMAKE_INSTALL_PREFIX:FILEPATH=$PREFIX \
-    -D CMAKE_PREFIX_PATH:FILEPATH=$PREFIX \
-    ..
+    ${CMAKE_ARGS}
 
-ninja install
+cmake --build build -j ${CPU_COUNT}
+cmake --install build
